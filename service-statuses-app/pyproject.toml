@@ -1,0 +1,44 @@
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.11.6"
+fastapi = "0.111.0"
+uvicorn = {extras = ["standart"], version = "0.30.1"}
+pydantic-settings = "2.3.3"
+sqlalchemy = "2.0.31"
+alembic = "1.13.1"
+asyncpg = "0.29.0"
+alembic-postgresql-enum = "1.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "3.7.1"
+isort = "5.13.2"
+black = "24.4.2"
+flake8 = "7.1.0"
+
+[tool.isort]
+profile = 'black'
+line_length = 80
+lines_after_imports = 2
+lines_between_sections = 1
+lines_between_types = 0
+force_alphabetical_sort_within_sections = true
+ensure_newline_before_comments = true
+combine_as_imports = true
+combine_star = true
+skip_gitignore = true
+balanced_wrapping = true
+skip = ['.git', '__pycache__']
+
+[tool.black]
+line-length = 120
+skip-string-normalization = true
+exclude = '''
+    .git
+    __pycache__
+'''
+
+[tool.flake8]
+max-line-length = 120
+exclude = ['.git', '__pycache__']
